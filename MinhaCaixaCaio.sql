@@ -251,4 +251,43 @@ GO
 INSERT dbo.CartaoCredito VALUES  (4,7,'2222-3333-4444-5555',2000)
 GO
 
+--Exemplos das consultas da apostila de BDA Prof Dornel
+-- Seleciona tudo da tabela AGENCIAS
+SELECT * FROM Agencias
+
+--Seleciona as colunas AgenciaNome e AgenciaCidade da tabela AGENCIAS
+SELECT AgenciaNome, AgenciaCidade FROM Agencias
+
+--Seleciona tudo da tabela CONTAS
+SELECT * FROM Contas
+
+--Seleciona as colunas ContaNumero e ContaSaldo 
+--mas só mostra o ContaSaldo, onde o saldo é igual a 500
+SELECT ContaNumero, ContaSaldo
+FROM Contas WHERE ContaSaldo = 500
+
+--Seleciona AgenciaCodigo, ContaNumero e ContaSaldo, da tabela CONTAS
+-- onde ContaSaldo for maior 500 a AgenciaCodigo = 1
+SELECT AgenciaCodigo, ContaNumero, ContaSaldo 
+FROM Contas WHERE ContaSaldo > 500 AND AgenciaCodigo = '1'
+
+--Seleciona com relacionamento entre tabelas
+SELECT ClienteCodigo, ContaSaldo,
+AgenciaNome, Agencias.AgenciaCidade
+FROM Contas, Agencias 
+
+--Order By
+SELECT ClienteCodigo, ContaSaldo,
+AgenciaNome, Agencias.AgenciaCidade
+FROM Contas, Agencias 
+WHERE ContaSaldo=AgenciaFundos
+
+
+SELECT * FROM Agencias
+
+
+
+
+
+SELECT * FROM Contas
 
