@@ -78,6 +78,11 @@ GO
 insert Clientes values ('Julia','Nova Brasília','Joinville','1985-03-18')
 go
 
+SELECT * FROM CLientes
+
+UPDATE Clientes SET ClienteNome = 'Caio', ClienteRua = 'ABCD' WHERE ClienteCodigo = 13
+SELECT ClienteNome, ClienteRua FROM Clientes WHERE ClienteCodigo = 13
+
 CREATE TABLE Agencias
 (
 AgenciaCodigo INT IDENTITY CONSTRAINT PK_Agencias PRIMARY KEY,
