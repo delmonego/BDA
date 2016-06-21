@@ -77,12 +77,12 @@ insert Clientes values ('Pedro','Aventureiro','Joinville','1975-06-08')
 GO
 insert Clientes values ('Julia','Nova Brasília','Joinville','1985-03-18')
 go
-
+/*
 SELECT * FROM CLientes
 
 UPDATE Clientes SET ClienteNome = 'Caio', ClienteRua = 'ABCD' WHERE ClienteCodigo = 13
 SELECT ClienteNome, ClienteRua FROM Clientes WHERE ClienteCodigo = 13
-
+*/
 CREATE TABLE Agencias
 (
 AgenciaCodigo INT IDENTITY CONSTRAINT PK_Agencias PRIMARY KEY,
@@ -251,10 +251,39 @@ GO
 --insert simples
 INSERT dbo.CartaoCredito VALUES  (1,12,'1111-2222-3333-4444',1000)
 GO
-INSERT dbo.CartaoCredito VALUES  (4,13,'1234-4567-8910-1112',1000)
+INSERT dbo.CartaoCredito VALUES  (4,13,'1234-4567-8910-1112',9000)
 GO
-INSERT dbo.CartaoCredito VALUES  (4,7,'2222-3333-4444-5555',2000)
+INSERT dbo.CartaoCredito VALUES  (4,7,'5555-0000-4444-5555',5600)
 GO
+INSERT dbo.CartaoCredito VALUES  (2,1,'2222-3333-9876-0987',500)
+GO
+INSERT dbo.CartaoCredito VALUES  (1,5,'8888-0933-4444-5555',200)
+GO
+INSERT dbo.CartaoCredito VALUES  (3,3,'2456-5433-4444-5555',1000)
+GO
+
+/*-----------------EXEMPLOS DE SELECT, UPDATE E DELETE--------------------*/
+
+SELECT * FROM CartaoCredito
+
+DELETE FROM CartaoCredito WHERE  ClienteCodigo = 3
+
+UPDATE CartaoCredito SET ClienteCodigo = 3 WHERE ClienteCodigo = 12
+
+
+
+
+--CONSULTA COM ORDER BY E WHERE
+SELECT * FROM CartaoCredito WHERE CartaoLimite
+ > 100 ORDER BY CartaoLimite 
+
+ --CONSULTA COM AND, ORDER BY E WHERE
+SELECT * FROM CartaoCredito WHERE CartaoLimite
+ > 100 AND ClienteCodigo < 10 ORDER BY CartaoLimite 
+ --O OPERADOR AND TEM PREFERENCIA SOBRE O OR
+ --CONSULTA COM OR, ORDER BY E WHERE
+ SELECT * FROM CartaoCredito WHERE CartaoLimite
+ > 1000 OR AgenciaCodigo = 4 ORDER BY CartaoLimite 
 
 --Exemplos das consultas da apostila de BDA Prof Dornel
 -- Seleciona tudo da tabela AGENCIAS
@@ -295,4 +324,5 @@ SELECT * FROM Agencias
 
 
 SELECT * FROM Contas
+
 
