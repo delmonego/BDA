@@ -79,7 +79,6 @@ insert Clientes values ('Julia','Nova Brasília','Joinville','1985-03-18')
 go
 /*
 SELECT * FROM CLientes
-
 UPDATE Clientes SET ClienteNome = 'Caio', ClienteRua = 'ABCD' WHERE ClienteCodigo = 13
 SELECT ClienteNome, ClienteRua FROM Clientes WHERE ClienteCodigo = 13
 */
@@ -264,14 +263,11 @@ GO
 
 /*-----------------EXEMPLOS DE SELECT, UPDATE E DELETE--------------------*/
 
-SELECT * FROM CartaoCredito
+SELECT * FROM CartaoCredito WHERE ClienteCodigo = 1
 
-DELETE FROM CartaoCredito WHERE  ClienteCodigo = 3
+DELETE FROM CartaoCredito WHERE  ClienteCodigo = 'Numero'
 
-UPDATE CartaoCredito SET ClienteCodigo = 3 WHERE ClienteCodigo = 12
-
-
-
+UPDATE CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
 
 --CONSULTA COM ORDER BY E WHERE
 SELECT * FROM CartaoCredito WHERE CartaoLimite
@@ -323,6 +319,4 @@ SELECT * FROM Agencias
 
 
 
-SELECT * FROM Contas
-
-
+SELECT * FROM Contas*/
