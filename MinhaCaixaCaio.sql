@@ -262,12 +262,14 @@ INSERT dbo.CartaoCredito VALUES  (3,3,'2456-5433-4444-5555',1000)
 GO
 
 /*-----------------EXEMPLOS DE SELECT, UPDATE E DELETE--------------------*/
-
+/*
 SELECT * FROM CartaoCredito WHERE ClienteCodigo = 1
 
 DELETE FROM CartaoCredito WHERE  ClienteCodigo = 'Numero'
 
-UPDATE CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
+--UPDATE CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
+
+--DELETE FROM CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
 
 --CONSULTA COM ORDER BY E WHERE
 SELECT * FROM CartaoCredito WHERE CartaoLimite
