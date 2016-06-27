@@ -262,14 +262,14 @@ INSERT dbo.CartaoCredito VALUES  (3,3,'2456-5433-4444-5555',1000)
 GO
 
 /*-----------------EXEMPLOS DE SELECT, UPDATE E DELETE--------------------*/
-/*
+
 SELECT * FROM CartaoCredito WHERE ClienteCodigo = 1
 
 DELETE FROM CartaoCredito WHERE  ClienteCodigo = 'Numero'
 
---UPDATE CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
+UPDATE CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
 
---DELETE FROM CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
+DELETE FROM CartaoCredito SET CartaoLimite = 1500 WHERE ClienteCodigo = 1;
 
 --CONSULTA COM ORDER BY E WHERE
 SELECT * FROM CartaoCredito WHERE CartaoLimite
@@ -314,11 +314,38 @@ AgenciaNome, Agencias.AgenciaCidade
 FROM Contas, Agencias 
 WHERE ContaSaldo=AgenciaFundos
 
+--LIKE
+SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE 'a%' AND ClienteRua  NOT LIKE 'E%' --MOSTRAR OS QUE COMEÇAM COM __ E NÃO MOSTRA QUE COMEÇA COM __
+
+SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE '%a%' -- QUE CONTREM
+
+SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE '%a' --QUE TERMINA
+
+SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  NOT LIKE 'a%' --QUE NAO COMEÇA
+
+--SELECT AS
+SELECT Clientes.ClienteNome AS Nome FROM Clientes -- AS atribui apelidos aos campos e tabelas
+
+--ORDER BY CRESCENTE
+SELECT Clientes.ClienteNome FROM Clientes
+ORDER BY Clientes.ClienteNome;
+
+--ORDER BY ORDEM DECRESCENTE
+SELECT Clientes.ClienteNome FROM Clientes
+ORDER BY Clientes.ClienteNome DESC;--ORDENA POR ORDEM DECRESCENTE
+
+--ORDER BY ORDEM DECRESCENTE E QUANTOS REGISTROS - pode escolher o numero do top
+SELECT TOP 5 ContaNumero, ContaSaldo FROM Contas
+ORDER BY ContaSaldo DESC;
+
+--SELECIONAR MAIOR VALOR DE COLUNA EM UMA TABELA
+SELECT MAX(CartaoLimite) FROM CartaoCredito
+
+--
+
 
 SELECT * FROM Agencias
 
-
-
-
-
 SELECT * FROM Contas*/
+
+SELECT * FROM 
